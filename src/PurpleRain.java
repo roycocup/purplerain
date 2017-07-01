@@ -1,10 +1,15 @@
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Vector;
+
 import processing.core.PApplet;
 
 public class PurpleRain extends PApplet {
 
 	final float gravity = 9.80f;
 	Drop[] rainDrops; 
-
+	Vector<Integer> ground = new Vector<Integer>(); 
+	
 	int numType1 = 50;
 	int numType2 = 50;
 	int numType3 = 50;
@@ -15,11 +20,19 @@ public class PurpleRain extends PApplet {
 	}
 
 	public void setup(){
-		build();
-
+		buildRain();
+		buildTerrain();
+	}
+	
+	void buildTerrain(){
+		ground.add(-5);
+		ground.add(height-10);
+		ground.add(width+5);
+		ground.add(height+1);
 	}
 
-	void build(){
+	
+	void buildRain(){
 		rainDrops = new Drop[numType1+numType2+numType3];
 
 		int i = 0;
@@ -42,9 +55,16 @@ public class PurpleRain extends PApplet {
 			i++;
 		}
 
-
 	}
-
+	
+	void drawScenery(){
+		
+		fill(13, 193, 67); //green / grass
+		rect(ground.get(0), ground.get(1), ground.get(2), ground.get(3));
+		fill(152,97,15); // brown / dirt
+		rect(ground.get(0), ground.get(1)+3, ground.get(2), ground.get(3));
+	}
+	
 	public void draw(){
 		background(125,0,124);
 		for(Drop drop : rainDrops){
@@ -53,6 +73,7 @@ public class PurpleRain extends PApplet {
 			drop.update();
 			drop.draw();
 		}
+		drawScenery();
 	}
 
 

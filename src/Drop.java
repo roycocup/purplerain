@@ -25,11 +25,17 @@ public class Drop {
 		this.color[2] = color[2];
 		this.color[3] = color[3];
 	}
+	
+	void doSplash(){
+		
+	}
 
 	void update(){
 		pos.y += speed;
-		if (pos.y > g.height){
+		if (pos.y+length-2 >= g.ground.get(1)){
+			doSplash();
 			pos.y = g.random(-10);
+			pos.x = g.random(g.width-1);
 		}
 	}
 
