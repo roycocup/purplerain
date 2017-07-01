@@ -44,7 +44,7 @@ public class PurpleRain extends PApplet {
 
 		while(i < numType1 + numType2){
 			int[] color = {168,0,162,200};
-			rainDrops[i] = new Drop(this, 1.5f, 5, color, 2);
+			rainDrops[i] = new Drop(this, 2f, 5, color, 2);
 			i++;
 		}
 

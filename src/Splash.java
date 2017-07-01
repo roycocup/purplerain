@@ -32,8 +32,9 @@ public class Splash {
 	
 	void draw(){
 		g.pushMatrix();
+		g.noStroke();
 		g.fill(255);
-		float w = .5f;
+		float w = 2f;
 		g.rect(pos.x, pos.y, w, w);
 		g.popMatrix();
 	}
