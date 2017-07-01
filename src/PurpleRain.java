@@ -9,9 +9,9 @@ public class PurpleRain extends PApplet {
 	Drop[] rainDrops; 
 	Vector<Integer> ground = new Vector<Integer>(); 
 	
-	int numType1 = 200;
-	int numType2 = 100;
-	int numType3 = 100;
+	int numType1 = 1;
+	int numType2 = 1;
+	int numType3 = 1;
 
 
 	public void settings(){

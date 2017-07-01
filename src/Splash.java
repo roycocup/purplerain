@@ -4,10 +4,8 @@ public class Splash {
 	
 	PurpleRain g;
 	
-	PVector gravity = new PVector(0, 0.1f);
 	PVector pos = new PVector();
-	PVector vel = new PVector();
-	PVector acc = new PVector();
+	SplashDropplet[] dropplets = new SplashDropplet[5]; 
 	
 	
 	public Splash(PurpleRain g){
@@ -16,26 +14,27 @@ public class Splash {
 	
 	public void run(PVector pos){
 		this.pos = pos;
-		applyForce(new PVector(1,-1));
+		createDropplets();
 	}
 	
-	void applyForce(PVector force){
-		acc.add(force);
+	void createDropplets(){
+		for(int i = 0; i < dropplets.length; i++){	
+			dropplets[i] = new SplashDropplet(g);
+			dropplets[i].pos = pos;
+			//dropplets[i].applyForce(new PVector(g.random(-1,1), g.random(-0.8f, -1)));
+		}
 	}
+	
 	
 	void update(){
-		applyForce(gravity);
-		vel.add(acc);
-		pos.add(vel);
-		acc.setMag(0);
+		for(SplashDropplet dropplet : dropplets){
+			dropplet.update();
+		}
 	}
 	
 	void draw(){
-		g.pushMatrix();
-		g.noStroke();
-		g.fill(255);
-		float w = 2f;
-		g.rect(pos.x, pos.y, w, w);
-		g.popMatrix();
+		for(SplashDropplet dropplet : dropplets){
+			dropplet.draw();
+		}
 	}
 }
