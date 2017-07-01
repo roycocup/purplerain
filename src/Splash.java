@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 import processing.core.PVector;
 
 public class Splash {
@@ -30,22 +32,19 @@ public class Splash {
 	
 	
 	void update(){
-		byte[] belowGround = new byte[dropplets.length];
+		
+		Vector<Integer> belowGround = new Vector<Integer>();
 		int i = 0;
 		for(SplashDropplet dropplet : dropplets){
 			dropplet.update();
 			
 			if (dropplet.pos.y > g.ground.get(1)){
-				belowGround[i] = 1; 
+				belowGround.add(1); 
 			} 
 			i++;
 		}
-		//There should be a way faster way to do this... unless I change data structs
-		byte t = 0;
-		for (byte j = 0; j < belowGround.length; j++){
-			t += belowGround[j];
-		}	
-		if (t == numDropplets){
+			
+		if (belowGround.size() == numDropplets){
 			running = false;
 		}
 			
