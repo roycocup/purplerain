@@ -6,13 +6,12 @@ import processing.core.PApplet;
 
 public class PurpleRain extends PApplet {
 
-	final float gravity = 9.80f;
 	Drop[] rainDrops; 
 	Vector<Integer> ground = new Vector<Integer>(); 
 	
-	int numType1 = 50;
-	int numType2 = 50;
-	int numType3 = 50;
+	int numType1 = 200;
+	int numType2 = 100;
+	int numType3 = 100;
 
 
 	public void settings(){
@@ -38,19 +37,19 @@ public class PurpleRain extends PApplet {
 		int i = 0;
 
 		while(i < numType1){
-			int[] color = {0,0,0,255};
-			rainDrops[i] = new Drop(this, 2f, 10, color, 2);
+			int[] color = {139,2,135,255};
+			rainDrops[i] = new Drop(this, 3f, 8, color, 2);
 			i++;
 		}
 
 		while(i < numType1 + numType2){
-			int[] color = {255,255,255,200};
+			int[] color = {168,0,162,200};
 			rainDrops[i] = new Drop(this, 1.5f, 5, color, 2);
 			i++;
 		}
 
 		while(i < numType1 + numType2 + numType3){
-			int[] color = {0,255,255,100};
+			int[] color = {202,0,195,100};
 			rainDrops[i] = new Drop(this, 1, 3, color, 1);
 			i++;
 		}
@@ -58,15 +57,16 @@ public class PurpleRain extends PApplet {
 	}
 	
 	void drawScenery(){
-		
+		pushMatrix();
 		fill(13, 193, 67); //green / grass
 		rect(ground.get(0), ground.get(1), ground.get(2), ground.get(3));
 		fill(152,97,15); // brown / dirt
 		rect(ground.get(0), ground.get(1)+3, ground.get(2), ground.get(3));
+		popMatrix();
 	}
 	
 	public void draw(){
-		background(125,0,124);
+		background(255,155,253);
 		for(Drop drop : rainDrops){
 			if (drop == null)
 				continue;
