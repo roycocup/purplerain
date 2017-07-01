@@ -48,7 +48,7 @@ public class Drop {
 			reset();
 		}
 		
-		if (splashActive && splash.pos.y > g.ground.get(1)){
+		if (splashActive && !splash.running){
 			splash = null;
 			splashActive = false;
 		}

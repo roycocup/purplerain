@@ -10,7 +10,6 @@ public class SplashDropplet {
 	
 	public SplashDropplet(PurpleRain g){
 		this.g = g;
-		applyForce(new PVector(g.random(-1,1), g.random(-0.8f, -1)));
 	}
 	
 	void applyForce(PVector force){
