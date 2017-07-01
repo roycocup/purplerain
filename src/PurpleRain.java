@@ -1,5 +1,3 @@
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Vector;
 
 import processing.core.PApplet;
@@ -9,9 +7,9 @@ public class PurpleRain extends PApplet {
 	Drop[] rainDrops; 
 	Vector<Integer> ground = new Vector<Integer>(); 
 	
-	int numType1 = 1;
-	int numType2 = 1;
-	int numType3 = 1;
+	int numType1 = 50;
+	int numType2 = 50;
+	int numType3 = 50;
 
 
 	public void settings(){
